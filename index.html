@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <section id="app">
+        
+        <aside id="lifelines">
+            <button>50:50</button>
+            <button>Ask Audience</button>
+            <button>Phone a Friend</button>
+            <br>
+            <button>Play</button>
+        </aside>
+        <main>
+            <div id="top">
+                <h1>{{unescapedQ()}}</h1>
+            </div>
+            <div id="bottom">
+                <div class="flex">
+                    <button id="a" v-bind:data-picked="AnswersA()" @click="AnswerSubmit" data-key1="65" data-key2="97">A: {{AnswersA()}}</button>
+                    <button id="b" v-bind:data-picked="AnswersB()" @click="AnswerSubmit" data-key1="66" data-key2="98">B: {{AnswersB()}}</button>
+                </div>
+                <div class="flex">
+                    <button id="c" v-bind:data-picked="AnswersC()" @click="AnswerSubmit" data-key1="67" data-key2="99">C: {{AnswersC()}}</button>
+                    <button id="d" v-bind:data-picked="AnswersD()" @click="AnswerSubmit" data-key1="68" data-key2="100">D: {{AnswersD()}}</button>
+                </div>
+            </div>
+        </main>
+        <aside id="score">
+            <ul>
+                <li v-for="(item,index) in reverseQs" :key="item" >{{item.level}} - ${{item.amount}}</li>
+            </ul>
+        </aside>
+    </section>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
